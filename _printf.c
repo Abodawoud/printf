@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i] && format)
 	{
-		if ((format[i] == '%'))
+		if ((format[i] == '%') )
 		{
 			if (format[i + 1] == 's')
 				len = percent(len, (va_arg(arg, char*)));
@@ -51,19 +51,20 @@ int _printf(const char *format, ...)
 				c = va_arg(arg, int);
 				write(1, &c, 1);
 			}
-			if ((format[i + 1] == '%') && ((format[i + 2] != '\n')))
+			if ((format[i + 1] == '%'))
 			{
+				i += 2;
 				len--;
 				write(1, "%", 1);
-			}
-			if ((format[i + 1] == '%') && ((format[i + 2] == '\n')))
-			{
-				len--;
-				write(1, "%\n", 2);
+				continue;
 			}
 		}
-		else if ((format[i - 1] != '%') && ((format[i] != 's')
-			|| (format[i] != 'c') || format[i] != '%'))
+		else if ((format[i - 1] == '%') && ((format[i] == 's') || (format[i] == 'c')))
+		{
+			i++;
+			continue;
+		}
+		else
 			write(1, &(format[i]), 1);
 		i++;
 	}
