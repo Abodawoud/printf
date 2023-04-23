@@ -68,8 +68,8 @@ int main(void)
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 
-	len = _printf("%k\n");
-	len2 = printf("%k\n");
+	len = _printf("%");
+	len2 = printf("%");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 	
