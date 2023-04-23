@@ -55,25 +55,22 @@ int _printf(const char *format, ...)
 	{
 		if ((format[i] == '%'))
 		{
-			if (format[i+1] == '\0')
+			if (format[i + 1] == '\0')
 				return (-1);
 			else if (format[i + 1] == 's')
 			{
 				len = string(len, (va_arg(arg, char*)));
 				i += 2;
-			}
-			else if (format[i + 1] == 'c')
+			} else if (format[i + 1] == 'c')
 			{
 				len = ch(len, (va_arg(arg, int)));
 				i += 2;
-			}
-			else if ((format[i + 1] == '%'))
+			} else if ((format[i + 1] == '%'))
 			{
 				len--;
 				write(1, "%", 1);
 				i += 2;
-			}
-			else
+			} else
 			{
 				write(1, &(format[i]), 1);
 				i++;
