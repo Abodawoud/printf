@@ -67,8 +67,11 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		else if ((format[i - 1] == '%') &&
-			((format[i] == 's') || (format[i] == 'c')))
+		else if (((format[i - 1] == '%') && (format[i - 2] == '%')) && ((format[i] == 's') || (format[i] == 'c')))
+		{
+			write(1, &(format[i]), 1);
+		}
+		else if (((format[i - 1] == '%')) && ((format[i] == 's') || (format[i] == 'c')))
 		{
 			i++;
 			continue;
