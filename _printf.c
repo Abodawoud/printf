@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * percent - .
+ * string - .
  *@len: .
  *@s: .
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
  */
-int percent(int len, char *s)
+int string(int len, char *s)
 {
 	len -= 2;
 	if (s == NULL)
@@ -22,6 +22,20 @@ int percent(int len, char *s)
 	return (len);
 }
 /**
+ * ch - .
+ *@len: .
+ *@s: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
+int ch(int len, char s)
+{
+	len -= 2;
+	len++;
+	write(1, &s, 1);
+	return (len);
+}
+/**
  * _printf - .
  *@format: .
  * Return: on success, .
@@ -31,7 +45,6 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	int len, i;
-	char c;
 
 	if (format == NULL)
 		return (-1);
@@ -40,17 +53,12 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i] && format)
 	{
-		if ((format[i] == '%') )
+		if ((format[i] == '%'))
 		{
 			if (format[i + 1] == 's')
-				len = percent(len, (va_arg(arg, char*)));
+				len = string(len, (va_arg(arg, char*)));
 			if (format[i + 1] == 'c')
-			{
-				len -= 2;
-				len++;
-				c = va_arg(arg, int);
-				write(1, &c, 1);
-			}
+				len = ch(len, (va_arg(arg, int)));
 			if ((format[i + 1] == '%'))
 			{
 				i += 2;
@@ -59,7 +67,8 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-		else if ((format[i - 1] == '%') && ((format[i] == 's') || (format[i] == 'c')))
+		else if ((format[i - 1] == '%') &&
+			((format[i] == 's') || (format[i] == 'c')))
 		{
 			i++;
 			continue;
