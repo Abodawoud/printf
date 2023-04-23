@@ -47,8 +47,8 @@ int main(void)
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 
-	len = _printf("%s  %%ssssss \n", NULL, "jj");
-	len2 = printf("%s  %%ssssss \n", NULL, "jj");
+	len = _printf("%s  %%ff \n", NULL, "jj");
+	len2 = printf("%s  %%ff \n", NULL, "jj");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 	return 0;
