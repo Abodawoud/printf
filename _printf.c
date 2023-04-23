@@ -61,24 +61,17 @@ int _printf(const char *format, ...)
 				len = ch(len, (va_arg(arg, int)));
 			if ((format[i + 1] == '%'))
 			{
-				i += 2;
+				
 				len--;
 				write(1, "%", 1);
-				continue;
 			}
-		}
-		else if (((format[i - 1] == '%') && (format[i - 2] == '%')) && ((format[i] == 's') || (format[i] == 'c')))
-		{
-			write(1, &(format[i]), 1);
-		}
-		else if (((format[i - 1] == '%')) && ((format[i] == 's') || (format[i] == 'c')))
-		{
-			i++;
-			continue;
+			i += 2;
 		}
 		else
+		{
 			write(1, &(format[i]), 1);
-		i++;
+			i++;
+		}
 	}
 	return (len);
 }
