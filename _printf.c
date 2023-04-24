@@ -112,6 +112,7 @@ int _printf(const char *format, ...)
 			} else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
 			{
 				len += printdecimal(va_arg(arg, int));
+				i += 2;
 			} else
 			{
 				len++;
