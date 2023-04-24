@@ -13,12 +13,12 @@ int printdecimal(int n)
 
 	if (n == 0)
 	{
-		putchar(48);
+		write (1, "0", 1);
 		return (++len);
 	}
 	if (n < 0)
 	{
-		putchar(45);
+		write (1, "-", 1);
 		len++;
 		m = n * -1;
 	}
@@ -36,7 +36,8 @@ int printdecimal(int n)
 
 	while (count >= 1)
 	{
-		putchar(((m / count) % 10) + 48);
+		char s = ((m / count) % 10) + '0';
+		write (1, &s, 1);
 		len++;
 		count /= 10;
 	}
