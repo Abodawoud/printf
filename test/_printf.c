@@ -1,4 +1,31 @@
 #include "main.h"
+/**
+ * printdecimal - .
+ *@len: .
+ *@args: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
+int int_length(int number) {
+    int length = 0;
+    if (number < 0) {
+        number = -number;
+    }
+
+    while (number > 0) {
+        length++;
+        number /= 10;
+    }
+
+    return length;
+}
+/**
+ * printdecimal - .
+ *@len: .
+ *@args: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
 void intToStr(int num, char *str) {
 	int i;
 	int j;
@@ -43,12 +70,11 @@ void intToStr(int num, char *str) {
  */
 int printdecimal(int len, va_list args)
 {
-	int n = va_arg(args, int), stringlen;
-	char *s = "face";
-
+	int n = va_arg(args, int);
+	char *s;
+	s = malloc(int_length(n));
 	intToStr(n, s);
-	stringlen = (int)strlen(s);
-	write(1, s, stringlen);
+	write(1, s, int_length(n));
 	return (len);
 }
 /**
