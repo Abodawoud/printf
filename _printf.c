@@ -6,16 +6,41 @@
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
  */
-int printdecimal(int len, va_list args)
+int printdecimal(int n)
 {
-	int n = va_arg(args, int);
+    int len = 0;
+	unsigned int m, d, count;
 
 	if (n == 0)
 	{
-		write(1, "0", 1);
-		len++;
+		putchar(48);
+		return (++len);
 	}
-	return (0);
+	if (n < 0)
+	{
+		putchar(45);
+		len++;
+		m = n * -1;
+	}
+	else
+	{
+		m = n;
+	}
+	d = m;
+	count = 1;
+	while (d > 9)
+	{
+		d /= 10; 
+		count *= 10;
+	}
+
+	while (count >= 1)
+	{
+		putchar(((m / count) % 10) + 48);
+		len++;
+		count /= 10;
+	}
+	return (len);
 }
 /**
  * string - .
@@ -84,6 +109,9 @@ int _printf(const char *format, ...)
 				len++;
 				write(1, "%", 1);
 				i += 2;
+			} else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+			{
+				len += printdecimal(va_arg(arg, int));
 			} else
 			{
 				len++;

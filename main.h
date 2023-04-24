@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+int _putchar(char c);
 int _printf(const char *format, ...);
 
 #endif
