@@ -1,5 +1,23 @@
 #include "main.h"
 /**
+ * printdecimal - .
+ *@len: .
+ *@args: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
+int printdecimal(int len, va_list args)
+{
+	int n = va_arg(args, int);
+
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		len++;
+	}
+	return (0);
+}
+/**
  * string - .
  *@len: .
  *@s: .
@@ -8,7 +26,6 @@
  */
 int string(int len, char *s)
 {
-	len -= 2;
 	if (s == NULL)
 	{
 		write(1, "(null)", 6);
@@ -30,7 +47,6 @@ int string(int len, char *s)
  */
 int ch(int len, char s)
 {
-	len -= 2;
 	len++;
 	write(1, &s, 1);
 	return (len);
@@ -44,13 +60,11 @@ int ch(int len, char s)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int len, i;
+	int len = 0, i = 0;
 
 	if (format == NULL)
 		return (-1);
-	len = (int)strlen(format);
 	va_start(arg, format);
-	i = 0;
 	while (format[i] && format)
 	{
 		if ((format[i] == '%'))
@@ -67,17 +81,18 @@ int _printf(const char *format, ...)
 				i += 2;
 			} else if ((format[i + 1] == '%'))
 			{
-				len--;
+				len++;
 				write(1, "%", 1);
 				i += 2;
 			} else
 			{
+				len++;
 				write(1, &(format[i]), 1);
 				i++;
 			}
-		}
-		else
+		} else
 		{
+			len++;
 			write(1, &(format[i]), 1);
 			i++;
 		}
