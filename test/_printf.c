@@ -1,4 +1,56 @@
 #include "main.h"
+void intToStr(int num, char *str) {
+	int i;
+	int j;
+	int k;
+	int is_negative = 0;
+
+	if (num == 0) {
+        str[0] = '0';
+        str[1] = '\0';
+        return;
+    }
+
+    if (num < 0) {
+        is_negative = 1;
+        num = -num;
+    }
+
+    i = 0;
+    while (num > 0) {
+        str[i++] = (num % 10) + '0';
+        num /= 10;
+    }
+
+    if (is_negative) {
+        str[i++] = '-';
+    }
+
+    str[i] = '\0';
+
+    for (j = 0, k = i - 1; j < k; j++, k--) {
+        char temp = str[j];
+        str[j] = str[k];
+        str[k] = temp;
+    }
+}
+/**
+ * printdecimal - .
+ *@len: .
+ *@args: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
+int printdecimal(int len, va_list args)
+{
+	int n = va_arg(args, int), stringlen;
+	char *s = "face";
+
+	intToStr(n, s);
+	stringlen = (int)strlen(s);
+	write(1, s, stringlen);
+	return (len);
+}
 /**
  * string - .
  *@len: .
@@ -8,7 +60,6 @@
  */
 int string(int len, char *s)
 {
-	len -= 2;
 	if (s == NULL)
 	{
 		write(1, "(null)", 6);
@@ -30,7 +81,6 @@ int string(int len, char *s)
  */
 int ch(int len, char s)
 {
-	len -= 2;
 	len++;
 	write(1, &s, 1);
 	return (len);
@@ -44,13 +94,11 @@ int ch(int len, char s)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int len, i;
+	int len = 0, i = 0;
 
 	if (format == NULL)
 		return (-1);
-	len = (int)strlen(format);
 	va_start(arg, format);
-	i = 0;
 	while (format[i] && format)
 	{
 		if ((format[i] == '%'))
@@ -67,17 +115,21 @@ int _printf(const char *format, ...)
 				i += 2;
 			} else if ((format[i + 1] == '%'))
 			{
-				len--;
+				len++;
 				write(1, "%", 1);
 				i += 2;
+			} else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+			{
+				len = printdecimal(len, arg);
 			} else
 			{
+				len++;
 				write(1, &(format[i]), 1);
 				i++;
 			}
-		}
-		else
+		} else
 		{
+			len++;
 			write(1, &(format[i]), 1);
 			i++;
 		}
