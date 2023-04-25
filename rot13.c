@@ -10,6 +10,7 @@ int rot13(va_list arg)
 	int len = 0, i;
 	char *s = va_arg(arg, char *);
 	char str;
+
 	if (s == NULL)
 	{
 		return (0);
