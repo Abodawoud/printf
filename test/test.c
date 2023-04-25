@@ -9,9 +9,14 @@
  */
 int main(void)
 {
-	int len;
+	int len, len2;
 	len = _printf("%R\n","{1NNnn2}");
 	printf("len %d\n", len);
+
+	len = _printf("%r","Hello");
+	len2 = printf("");
+	printf("len %d\n", len);
+	printf("len2 %d\n", len2);
 /*	int len, len2;
 
 	len = _printf("%r","Hello");

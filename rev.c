@@ -7,18 +7,15 @@
  */
 int reverse(va_list arg)
 {
-	int i;
-	char *s = va_arg(arg, char*), temp;
+	int i, len;
+	char *s = va_arg(arg, char*);
 
+	len = (int)strlen(s);
 	if (s == NULL)
 		return (0);
-	for (i = 0; i < ((int)strlen(s)) / 2; i++)
+	for (i = len - 1; i >= 0; i--)
 	{
-		temp = s[i];
-		s[i] = s[(int)strlen(s) - 1 - i];
-		s[(int)strlen(s) - 1 - i] = temp;
+		write(1, &(s[i]), 1);
 	}
-	for (i = 0; i < (int)strlen(s); i++)
-		write(1, &s[i], 1);
-	return ((int)strlen(s));
+	return (len);
 }
