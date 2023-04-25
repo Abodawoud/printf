@@ -25,7 +25,6 @@ int ch(va_list arg);
 int string(va_list arg);
 int after_percent(char s, va_list arg, int len, int i);
 int if_specifier(choose_t choose_specifier[], char s);
-
-
+int reverse(va_list arg);
 
 #endif

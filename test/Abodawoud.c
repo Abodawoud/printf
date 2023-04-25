@@ -11,7 +11,7 @@ int if_specifier(choose_t choose_specifier[], char s)
 {
 	int i;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 5; i++)
 	{
 		if (s == choose_specifier[i].c)
 			return (i);
@@ -97,32 +97,6 @@ int ch(va_list arg)
 	write(1, &s, 1);
 	return (1);
 }
-int reverse(va_list arg)
-{
-	int i;
-	char *s = va_arg(arg, char*), temp;
-
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	else
-	{
-		for (i = 0; i < ((int)strlen(s)) / 2; i++)
-		{
-			temp = s[i];
-			s[i] = s[(int)strlen(s) - 1 - i];
-			s[(int)strlen(s) - 1 - i] = temp;
-		}
-		for (i = 0; i < (int)strlen(s); i++)
-		{
-			write(1, &s[i], 1);
-		}
-		
-	}
-	return ((int)strlen(s));
-}
 /**
  * _printf - .
  *@format: .
@@ -136,7 +110,7 @@ int _printf(const char *format, ...)
 	int spec_idx;
 
 	choose_t choose_specifier[] = {{'c', ch}, {'s', string},
-	{'d', decimal}, {'i', decimal}, {'r', reverse}};
+	{'d', decimal}, {'i', decimal}};
 
 	if (format == NULL)
 		return (-1);
