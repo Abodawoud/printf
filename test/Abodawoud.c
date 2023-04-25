@@ -83,10 +83,9 @@ int string(va_list arg)
 	return ((int)strlen(s));
 }
 /**
- * ch - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * ch - Function that print characters
+ *@arg: Variadic Arguments from user [character]
+ * Return: Length 1 that equal one character
  */
 int ch(va_list arg)
 {
@@ -96,10 +95,9 @@ int ch(va_list arg)
 	return (1);
 }
 /**
- * _printf - .
- *@format: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * _printf - Function that print the format with handling the specifier
+ *@format: Fixed argument that take specifier
+ * Return: Length of format
  */
 int _printf(const char *format, ...)
 {
