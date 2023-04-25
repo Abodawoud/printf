@@ -8,7 +8,7 @@
 
 int binary(va_list arg)
 {
-	int n = va_arg(arg, int), len, i;
+	int n = va_arg(arg, int), len, i, flag = 0;
 	unsigned int m, temp;
 	char *s;
 
@@ -20,8 +20,8 @@ int binary(va_list arg)
 	}
 	if (n < 0)
 	{
+		flag = 1;
 		n *= -1;
-		len++;
 		write(1, "-", 1);
 	}
 	i = 0;
@@ -33,15 +33,14 @@ int binary(va_list arg)
 		m /= 2;
 	}
 	s = malloc(len);
-	while (temp)
+	for (i = len - 1; temp; i--)
 	{
 		s[i] = (temp % 2) + '0';
-		i++;
 		temp /= 2;
 	}
-	for (i = len - 1; i >= 0; i--)
-	{
+	for (i = 0; i < len; i++)
 		write(1, &s[i], 1);
-	}
+	if (flag)
+		len++;
 	return (len);
 }
