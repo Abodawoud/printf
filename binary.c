@@ -12,6 +12,11 @@ int binary(va_list arg)
 	unsigned int m, temp;
 	char *s;
 
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		return (0);
+	}
 	i = 0;
 	m = n;
 	temp = n;
