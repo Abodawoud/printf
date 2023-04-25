@@ -31,7 +31,10 @@ int binary(va_list arg)
 		s[i] = (temp % 2) + '0';
 		temp /= 2;
 	}
+	if (s == NULL)
+		return (0);
 	for (i = 0; i < len; i++)
 		write(1, &s[i], 1);
+	free(s);
 	return (len);
 }
