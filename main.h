@@ -6,7 +6,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-typedef struct
+/**
+ * struct choose - .
+ *
+ * @c: .
+ * @ptr: .
+ */
+typedef struct choose
 {
 	char c;
 	int (*ptr)(va_list arg);
@@ -17,7 +23,7 @@ int printdecimal(va_list arg);
 int ch(va_list arg);
 int string(va_list arg);
 int after_percent(char s, va_list arg, int len, int i);
-int if_specifier (choose_t choose_specifier[], char s);
+int if_specifier(choose_t choose_specifier[], char s);
 
 
 
