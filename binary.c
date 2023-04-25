@@ -12,15 +12,20 @@ int binary(va_list arg)
 	unsigned int m, temp;
 	char *s;
 
+	len = 0;
 	if (n == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
+	if (n < 0)
+	{
+		n *= -1;
+		len++;
+	}
 	i = 0;
 	m = n;
 	temp = n;
-	len = 0;
 	while (m)
 	{
 		len++;
@@ -33,6 +38,7 @@ int binary(va_list arg)
 		i++;
 		temp /= 2;
 	}
+	write(1, "-", 1);
 	for (i = len - 1; i >= 0; i--)
 	{
 		write(1, &s[i], 1);

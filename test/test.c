@@ -17,7 +17,12 @@ int main(void)
 	len2 = printf("");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
-	 _printf("%b\n", 98);
+	len = _printf("%b\n", 2);
+	printf("len %d\n", len);
+	len = _printf("%b\n", -98);
+	printf("len %d\n", len);
+	len = _printf("%b\n", -1);
+	printf("len %d\n", len);
     return (0);
 /*	int len, len2;
 
