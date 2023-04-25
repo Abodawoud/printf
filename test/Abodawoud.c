@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * if_specifier - .
+ * if_specifier - Function that compare the specifier to get
+ * the function of the specifier 
  * @choose_specifier: .
  * @s: .
  * Return: on success, .
