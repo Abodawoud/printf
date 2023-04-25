@@ -3,10 +3,9 @@
 /**
  * if_specifier - Function that compare the specifier to get
  * the function of the specifier 
- * @choose_specifier: .
- * @s: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * @choose_specifier: character argument
+ * @s: character argument 
+ * Return: i to get the first index from the choose_specifier[i]
  */
 int if_specifier(choose_t choose_specifier[], char s)
 {
