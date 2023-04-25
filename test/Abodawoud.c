@@ -20,10 +20,9 @@ int if_specifier(choose_t choose_specifier[], char s)
 
 }
 /**
- * decimal - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * decimal - Function that print Numbers
+ *@arg: Variadic Arguments from user [Int]
+ * Return: Length of digits
  */
 int decimal(va_list arg)
 {
@@ -64,10 +63,9 @@ int decimal(va_list arg)
 	return (len);
 }
 /**
- * string - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * string - Function that print String
+ *@arg: Variadic Arguments from user [String]
+ * Return: Length of string
  */
 int string(va_list arg)
 {
