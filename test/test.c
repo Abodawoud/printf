@@ -9,19 +9,24 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len;
+	/*int len, len2;
 	len = _printf("%R\n","{1NNnn2}");
 	printf("len %d\n", len);
 
 	len = _printf("%r","Hello");
 	len2 = printf("");
 	printf("len %d\n", len);
-	printf("len2 %d\n", len2);
+	printf("len2 %d\n", len2);*/
 	len = _printf("%b\n", 2);
 	printf("len %d\n", len);
-	len = _printf("%b\n", -98);
+	len = _printf("%b\n", 0);
 	printf("len %d\n", len);
-	len = _printf("%b\n", -1);
+	len = _printf("%b\n", 98);
+	printf("len %d\n", len);
+	len = _printf("%b\n", 98);
+	printf("len %d\n", len);
+	len = _printf("%b\n", 1);
 	printf("len %d\n", len);
     return (0);
 /*	int len, len2;
