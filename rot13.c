@@ -15,7 +15,6 @@ int rot13(va_list arg)
 	{
 		return (0);
 	}
-
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if ((*(s + i) >= 'a' && *(s + i) <= 'z') ||
@@ -34,6 +33,11 @@ int rot13(va_list arg)
 				write(1, &str, 1);
 				len++;
 			}
+		}
+		else
+		{
+			write(1, (s + i), 1);
+			len++;
 		}
 	}
 	return (len);
