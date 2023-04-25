@@ -15,7 +15,7 @@ int binary(va_list arg)
 	if (n == 0)
 	{
 		write(1, "0", 1);
-		return (0);
+		return (1);
 	}
 	i = 0;
 	m = n;
