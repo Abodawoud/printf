@@ -1,24 +1,44 @@
-#include "main.h"
+#include "../main.h"
+
 /**
- * printdecimal - .
- *@len: .
- *@args: .
+ * if_specifier - .
+ * @choose_specifier: .
+ * @s: .
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
  */
-int printdecimal(int n)
+int if_specifier(choose_t choose_specifier[], char s)
 {
-    int len = 0;
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		if (s == choose_specifier[i].c)
+			return (i);
+	}
+	return (-5);
+
+}
+/**
+ * decimal - .
+ *@arg: .
+ * Return: on success, .
+ *         on error, -1 is returned, and errno is set appropriately
+ */
+int decimal(va_list arg)
+{
+	int n = va_arg(arg, int);
+	int len = 0;
 	unsigned int m, d, count;
 
 	if (n == 0)
 	{
-		write (1, "0", 1);
+		write(1, "0", 1);
 		return (++len);
 	}
 	if (n < 0)
 	{
-		write (1, "-", 1);
+		write(1, "-", 1);
 		len++;
 		m = n * -1;
 	}
@@ -30,14 +50,14 @@ int printdecimal(int n)
 	count = 1;
 	while (d > 9)
 	{
-		d /= 10; 
+		d /= 10;
 		count *= 10;
 	}
-
 	while (count >= 1)
 	{
 		char s = ((m / count) % 10) + '0';
-		write (1, &s, 1);
+
+		write(1, &s, 1);
 		len++;
 		count /= 10;
 	}
@@ -45,37 +65,37 @@ int printdecimal(int n)
 }
 /**
  * string - .
- *@len: .
- *@s: .
+ *@arg: .
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
  */
-int string(int len, char *s)
+int string(va_list arg)
 {
+	char *s = va_arg(arg, char*);
+
 	if (s == NULL)
 	{
 		write(1, "(null)", 6);
-		len += 6;
+		return (6);
 	}
 	else
 	{
-		len += (int)strlen(s);
 		write(1, s, ((int)strlen(s)));
 	}
-	return (len);
+	return ((int)strlen(s));
 }
 /**
  * ch - .
- *@len: .
- *@s: .
+ *@arg: .
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
  */
-int ch(int len, char s)
+int ch(va_list arg)
 {
-	len++;
+	char s = va_arg(arg, int);
+
 	write(1, &s, 1);
-	return (len);
+	return (1);
 }
 /**
  * _printf - .
@@ -87,32 +107,29 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	int len = 0, i = 0;
+	int spec_idx;
+
+	choose_t choose_specifier[] = {{'c', ch}, {'s', string},
+	{'d', decimal}, {'i', decimal}};
 
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
 	while (format[i] && format)
 	{
+		spec_idx = if_specifier(choose_specifier, format[i + 1]);
 		if ((format[i] == '%'))
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			else if (format[i + 1] == 's')
+			else if (format[i + 1] == '%')
 			{
-				len = string(len, (va_arg(arg, char*)));
-				i += 2;
-			} else if (format[i + 1] == 'c')
-			{
-				len = ch(len, (va_arg(arg, int)));
-				i += 2;
-			} else if ((format[i + 1] == '%'))
-			{
-				len++;
 				write(1, "%", 1);
+				len++;
 				i += 2;
-			} else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+			} else if (spec_idx >= 0)
 			{
-				len += printdecimal(va_arg(arg, int));
+				len += choose_specifier[spec_idx].ptr(arg);
 				i += 2;
 			} else
 			{
