@@ -103,7 +103,10 @@ int reverse(va_list arg)
 	char *s = va_arg(arg, char*), temp;
 
 	if (s == NULL)
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	else
 	{
 		for (i = 0; i < ((int)strlen(s)) / 2; i++)
@@ -113,7 +116,10 @@ int reverse(va_list arg)
 			s[(int)strlen(s) - 1 - i] = temp;
 		}
 		for (i = 0; i < (int)strlen(s); i++)
+		{
 			write(1, &s[i], 1);
+		}
+		
 	}
 	return ((int)strlen(s));
 }

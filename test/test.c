@@ -11,12 +11,12 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("");
+	len = _printf("%r","Hello");
 	len2 = printf("");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 	
-	len = _printf("Let's try to printf a simple sentence.\n");
+	/*len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
@@ -47,7 +47,7 @@ int main(void)
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 
-	/*len = _printf("%s  %%%s ff \n", NULL, "jj");
+	len = _printf("%s  %%%s ff \n", NULL, "jj");
 	len2 = printf("%s  %%%s ff \n", NULL, "jj");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
@@ -66,7 +66,7 @@ int main(void)
 	len = _printf("%s  %%%  % ff \n", NULL, "jj");
 	len2 = printf("%s  %%%  % ff \n", NULL, "jj");
 	printf("len %d\n", len);
-	printf("len2 %d\n", len2);*/
+	printf("len2 %d\n", len2);
 
 	len = _printf("%");
 	len2 = printf("%");
@@ -104,7 +104,7 @@ int main(void)
 	len = _printf("len %d\n", 0377);
 	len2 = printf("len %d\n", 0377);
 	printf("len %d\n", len);
-	printf("len2 %d\n", len2);
+	printf("len2 %d\n", len2);*/
 	
 	return 0;
 }
