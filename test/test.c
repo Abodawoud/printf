@@ -10,11 +10,7 @@
 int main(void)
 {
 	int len;
-	len = _printf("%R\n","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
-	printf("len %d\n", len);
-	len = _printf("%R\n","abcdefghijklmnopqrstuvwxyz");
-	printf("len %d\n", len);
-	len = _printf("%R\n","ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	len = _printf("%R\n","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmn{{opqrstuvwxyz");
 	printf("len %d\n", len);
 /*	int len, len2;
 
