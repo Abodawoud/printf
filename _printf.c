@@ -17,7 +17,6 @@ int if_specifier(choose_t choose_specifier[], char s)
 			return (i);
 	}
 	return (-5);
-
 }
 /**
  * decimal - .
@@ -110,7 +109,7 @@ int _printf(const char *format, ...)
 	int spec_idx;
 
 	choose_t choose_specifier[] = {{'c', ch}, {'s', string},
-	{'d', decimal}, {'i', decimal}, {'r', reverse}};
+	{'d', decimal}, {'i', decimal}, {'r', reverse}, {'R', rot13}};
 
 	if (format == NULL)
 		return (-1);

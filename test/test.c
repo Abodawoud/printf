@@ -9,14 +9,21 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len;
+	len = _printf("%R\n","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+	printf("len %d\n", len);
+	len = _printf("%R\n","abcdefghijklmnopqrstuvwxyz");
+	printf("len %d\n", len);
+	len = _printf("%R\n","ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	printf("len %d\n", len);
+/*	int len, len2;
 
 	len = _printf("%r","Hello");
 	len2 = printf("");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
 	
-	/*len = _printf("Let's try to printf a simple sentence.\n");
+	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
