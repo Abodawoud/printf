@@ -22,11 +22,11 @@ int main(void)
 	printf("len %d\n", len);
 	len = _printf("%b\n", 0);
 	printf("len %d\n", len);
-	len = _printf("%b\n", 98);
+	len = _printf("%b\n", 2);
 	printf("len %d\n", len);
-	len = _printf("%b\n", 98);
+	len = _printf("%b\n", 2147483648);
 	printf("len %d\n", len);
-	len = _printf("%b\n", 1);
+	len = _printf("%b\n", -2147483648);
 	printf("len %d\n", len);
     return (0);
 /*	int len, len2;
