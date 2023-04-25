@@ -21,6 +21,7 @@ typedef struct choose
 int _putchar(char c);
 int _printf(const char *format, ...);
 int printdecimal(va_list arg);
+int binary(va_list arg);
 int ch(va_list arg);
 int string(va_list arg);
 int after_percent(char s, va_list arg, int len, int i);

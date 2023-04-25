@@ -17,6 +17,8 @@ int main(void)
 	len2 = printf("");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);
+	 _printf("%b\n", 98);
+    return (0);
 /*	int len, len2;
 
 	len = _printf("%r","Hello");
