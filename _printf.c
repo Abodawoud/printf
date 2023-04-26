@@ -61,7 +61,7 @@ int decimal(va_list arg)
 	return (len);
 }
 /**
- * string - Function that print String
+ * string - Function that print String.
  *@arg: Variadic Arguments from user [String]
  * Return: Length of string
  */
