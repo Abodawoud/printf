@@ -81,7 +81,7 @@ int string(va_list arg)
 	return ((int)strlen(s));
 }
 /**
- * ch - Function that print characters
+ * ch - Function that print characters.
  *@arg: Variadic Arguments from user [character]
  * Return: Length 1 that equal one character
  */
