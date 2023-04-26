@@ -33,7 +33,7 @@ int pointer(va_list arg)
 		if ((temp % 16) < 10)
 			s[i] = (temp % 16) + '0';
 		else
-			s[i] = (temp % 16) + 'W';
+			s[i] = (temp % 16) + '7';
 		temp /= 16;
 	}
 	s[len] = '\0';
