@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * pointer - Function that convert decimal to binary
+ * pointer - Function that convert decimal to hexadecimal
  * @arg: Variadic Arguments from user [Int]
  * Return: length digits
  */
