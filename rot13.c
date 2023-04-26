@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * rot13 - .
- * @arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * rot13 - Function that rotate 13
+ * @arg: Variadic Arguments from user [string]
+ * Return: Length of string
+ * Example : A => N , B => O
  */
 int rot13(va_list arg)
 {
