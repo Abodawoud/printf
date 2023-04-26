@@ -5,7 +5,7 @@
  * Return: length digits
  */
 
-int pointer(va_list arg)
+int hex_lower(va_list arg)
 {
 	unsigned int n = va_arg(arg, unsigned int), len, i, m, temp;
 	char *s;
@@ -27,18 +27,17 @@ int pointer(va_list arg)
 	s = malloc(len + 1);
 	if (s == NULL)
 		return (0);
-	write(1, "0x", 2);
 	for (i = len - 1; temp != 0; i--)
 	{
 		if ((temp % 16) < 10)
 			s[i] = (temp % 16) + '0';
 		else
-			s[i] = (temp % 16) + '7';
+			s[i] = (temp % 16) + 'W';
 		temp /= 16;
 	}
 	s[len] = '\0';
 	for (i = 0; i < len; i++)
 		write(1, &s[i], 1);
 	free(s);
-	return (len + 2);
+	return (len);
 }

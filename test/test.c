@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int len;
+	int len, len2;
 	/*int len, len2;
 	len = _printf("%R\n","{1NNnn2}");
 	printf("len %d\n", len);
@@ -18,16 +18,12 @@ int main(void)
 	len2 = printf("");
 	printf("len %d\n", len);
 	printf("len2 %d\n", len2);*/
-	len = _printf("%b\n", 2);
+	
+	
+	len = _printf("%X\n", 255);
 	printf("len %d\n", len);
-	len = _printf("%b\n", 0);
-	printf("len %d\n", len);
-	len = _printf("%b\n", 2);
-	printf("len %d\n", len);
-	len = _printf("%p\n", 88888888);
-	printf("len %d\n", len);
-	len = printf("%p\n", 88888888);
-	printf("len %d\n", len);
+	len2 = printf("%X\n", 255);
+	printf("len %d\n", len2);
     return (0);
 /*	int len, len2;
 
