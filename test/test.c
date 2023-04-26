@@ -24,9 +24,9 @@ int main(void)
 	printf("len %d\n", len);
 	len = _printf("%b\n", 2);
 	printf("len %d\n", len);
-	len = _printf("%b\n", 2147483648);
+	len = _printf("%p\n", 255);
 	printf("len %d\n", len);
-	len = _printf("%b\n", -2147483648);
+	len = printf("%p\n", 255);
 	printf("len %d\n", len);
     return (0);
 /*	int len, len2;
