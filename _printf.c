@@ -19,7 +19,7 @@ int if_specifier(choose_t choose_specifier[], char s)
 }
 /**
  * decimal - Function that print Numbers.
- *@arg: Variadic Arguments from user [Int]
+ *@arg: Variadic Arguments from user [Int].
  * Return: Length of digits
  */
 int decimal(va_list arg)
