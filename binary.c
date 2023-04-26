@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * binary - ..
- * @arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * binary - Function that convert decimal to binary
+ * @arg: Variadic Arguments from user [Int]
+ * Return: length digits
  */
 
 int binary(va_list arg)
