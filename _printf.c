@@ -93,7 +93,7 @@ int ch(va_list arg)
 	return (1);
 }
 /**
- * _printf - Function that print the format with handling the specifier
+ * _printf - Function that print the format with handling the specifier.
  *@format: Fixed argument that take specifier
  * Return: Length of format
  */
