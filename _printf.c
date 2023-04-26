@@ -1,11 +1,10 @@
 #include "main.h"
-
 /**
- * if_specifier - .
- * @choose_specifier: .
- * @s: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * if_specifier - Function that compare the specifier to get
+ * the function of the specifier
+ * @choose_specifier: character argument
+ * @s: character argument
+ * Return: i to get the first index from the choose_specifier[i]
  */
 int if_specifier(choose_t choose_specifier[], char s)
 {
@@ -19,10 +18,9 @@ int if_specifier(choose_t choose_specifier[], char s)
 	return (-5);
 }
 /**
- * decimal - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * decimal - Function that print Numbers
+ *@arg: Variadic Arguments from user [Int]
+ * Return: Length of digits
  */
 int decimal(va_list arg)
 {
@@ -63,10 +61,9 @@ int decimal(va_list arg)
 	return (len);
 }
 /**
- * string - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * string - Function that print String
+ *@arg: Variadic Arguments from user [String]
+ * Return: Length of string
  */
 int string(va_list arg)
 {
@@ -84,10 +81,9 @@ int string(va_list arg)
 	return ((int)strlen(s));
 }
 /**
- * ch - .
- *@arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * ch - Function that print characters
+ *@arg: Variadic Arguments from user [character]
+ * Return: Length 1 that equal one character
  */
 int ch(va_list arg)
 {
@@ -97,10 +93,9 @@ int ch(va_list arg)
 	return (1);
 }
 /**
- * _printf - .
- *@format: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * _printf - Function that print the format with handling the specifier
+ *@format: Fixed argument that take specifier
+ * Return: Length of format
  */
 int _printf(const char *format, ...)
 {
