@@ -18,7 +18,7 @@ int if_specifier(choose_t choose_specifier[], char s)
 	return (-5);
 }
 /**
- * decimal - Function that print Numbers
+ * decimal - Function that print Numbers.
  *@arg: Variadic Arguments from user [Int]
  * Return: Length of digits
  */
