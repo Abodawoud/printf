@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * binary - .
+ * binary - ..
  * @arg: .
  * Return: on success, .
  *         on error, -1 is returned, and errno is set appropriately
