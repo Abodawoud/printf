@@ -10,7 +10,7 @@ int if_specifier(choose_t choose_specifier[], char s)
 {
 	int i;
 
-	for (i = 0; i < 9; i++)
+	for (i = 0; i < 10; i++)
 	{
 		if (s == choose_specifier[i].c)
 			return (i);
@@ -105,7 +105,7 @@ int _printf(const char *format, ...)
 
 	choose_t choose_specifier[] = {{'c', ch}, {'s', string},
 	{'d', decimal}, {'i', decimal}, {'r', reverse}, {'R', rot13},
-	{'b', binary}, {'X', hex_upper}, {'x', hex_lower}};
+	{'b', binary}, {'X', hex_upper}, {'x', hex_lower}, {'o', octal}};
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
