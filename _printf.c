@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * if_specifier - Function that compare the specifier to get
- * the function of the specifier
+ * the function of the specifier.
  * @choose_specifier: character argument
  * @s: character argument
  * Return: i to get the first index from the choose_specifier[i]
