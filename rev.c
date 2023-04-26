@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * reverse - .
- * @arg: .
- * Return: on success, .
- *         on error, -1 is returned, and errno is set appropriately
+ * reverse - Function that reverse string
+ * @arg: Variadic Arguments from user [String]
+ * Return: Length of string
  */
 int reverse(va_list arg)
 {
