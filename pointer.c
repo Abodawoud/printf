@@ -1,6 +1,7 @@
 #include "main.h"
 /**
- * pointer - Function that convert decimal to hexadecimal
+ * po - Function that gives the address in hexdecimal and start
+ * by 0x
  * @arg: Variadic Arguments from user [Int]
  * Return: length of digits
  */
