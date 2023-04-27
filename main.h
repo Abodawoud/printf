@@ -26,9 +26,11 @@ int ch(va_list arg);
 int string(va_list arg);
 int hex_upper(va_list arg);
 int hex_lower(va_list arg);
+int un_int(va_list arg);
+int po(va_list arg);
 int octal(va_list arg);
 int after_percent(char s, va_list arg, int len, int i);
-int if_specifier(choose_t choose_specifier[], char s);
+int if_specifier(choose_t spec[], char s);
 int reverse(va_list arg);
 int rot13(va_list arg);
 

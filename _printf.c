@@ -2,17 +2,17 @@
 /**
  * if_specifier - Function that compare the specifier to get
  * the function of the specifier.
- * @choose_specifier: character argument
+ * @spec: character argument
  * @s: character argument.
- * Return: i to get the first index from the choose_specifier[i]
+ * Return: i to get the first index from the spec[i]
  */
-int if_specifier(choose_t choose_specifier[], char s)
+int if_specifier(choose_t spec[], char s)
 {
 	int i;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 12; i++)
 	{
-		if (s == choose_specifier[i].c)
+		if (s == spec[i].c)
 			return (i);
 	}
 	return (-5);
@@ -103,15 +103,16 @@ int _printf(const char *format, ...)
 	int len = 0, i = 0;
 	int spec_idx;
 
-	choose_t choose_specifier[] = {{'c', ch}, {'s', string},
-	{'d', decimal}, {'i', decimal}, {'r', reverse}, {'R', rot13},
-	{'b', binary}, {'X', hex_upper}, {'x', hex_lower}, {'o', octal}};
+	choose_t spec[] = {
+	{'c', ch}, {'s', string}, {'d', decimal}, {'i', decimal}, 
+	{'r', reverse}, {'R', rot13}, {'b', binary}, {'X', hex_upper}, 
+	{'x', hex_lower}, {'o', octal}, {'u', un_int}, {'p', po}};
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
 	while (format[i] && format)
 	{
-		spec_idx = if_specifier(choose_specifier, format[i + 1]);
+		spec_idx = if_specifier(spec, format[i + 1]);
 		if ((format[i] == '%'))
 		{
 			if (format[i + 1] == '\0')
@@ -123,7 +124,7 @@ int _printf(const char *format, ...)
 				i += 2;
 			} else if (spec_idx >= 0)
 			{
-				len += choose_specifier[spec_idx].ptr(arg);
+				len += spec[spec_idx].ptr(arg);
 				i += 2;
 			} else
 			{
