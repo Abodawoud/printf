@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * pointer - Function that convert decimal to binary
+ * octal - Function that convert decimal to octal
  * @arg: Variadic Arguments from user [Int]
  * Return: length digits
  */

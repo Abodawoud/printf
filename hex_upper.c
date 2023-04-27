@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * pointer - Function that convert decimal to hexadecimal
+ * hex_upper - Function that convert decimal to hexadecimal by using %X
  * @arg: Variadic Arguments from user [Int]
  * Return: length digits
  */
@@ -30,7 +30,7 @@ int hex_upper(va_list arg)
 	for (i = len - 1; temp != 0; i--)
 	{
 		if ((temp % 16) < 10)
-			s[i] = (temp % 16) + '0'; 
+			s[i] = (temp % 16) + '0';
 		else
 			s[i] = (temp % 16) + '7';
 		temp /= 16;
