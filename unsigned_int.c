@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * un_int - .
- * @arg: Variadic Arguments from user [Int]
+ * un_int - Function that takes the argument as unsigned int
+ * @arg: Variadic Arguments from user [unsigned Int]
  * Return: length digits
  */
 
@@ -18,7 +18,7 @@ int un_int(va_list arg)
 		return (++len);
 	}
 	m = n;
-	while(n)
+	while (n)
 	{
 		len++;
 		n /= 10;
@@ -36,5 +36,5 @@ int un_int(va_list arg)
 	s[len] = '\0';
 
 	free(s);
-	return(len);
+	return (len);
 }
