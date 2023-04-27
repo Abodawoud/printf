@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * pointer - Function that convert decimal to hexadecimal
+ * hex_lower - Function that convert decimal to hexadecimal by using %x
  * @arg: Variadic Arguments from user [Int]
  * Return: length of digits
  */
